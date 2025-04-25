@@ -4,6 +4,9 @@
 #if _STLSOFT_VER < 0x010b0184
 # error requires STLSoft v1.11.1-b4 or later
 #endif
+#if __cplusplus < 201702L
+# error requires C++17 or later
+#endif
 
 #include <platformstl/filesystem/path_functions.h>
 #include <winstl/error/error_desc.hpp>
