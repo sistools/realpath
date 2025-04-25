@@ -40,6 +40,21 @@ int main(int argc, char* argv[])
             return EXIT_SUCCESS;
         }
         else
+        if (0 == std::strcmp("--version", argv[1]))
+        {
+            std::cout
+                << program_name
+                << " v"
+                << REALPATH_VER_MAJOR
+                << '.'
+                << REALPATH_VER_MINOR
+                << '.'
+                << REALPATH_VER_PATCH
+                << std::endl;
+
+            return EXIT_SUCCESS;
+        }
+        else
         {
             winstl::absolute_path abs_path(argv[1]);
 
