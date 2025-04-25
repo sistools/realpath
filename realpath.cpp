@@ -6,6 +6,11 @@
 #include <iostream>
 
 
+#define REALPATH_VER_MAJOR  0
+#define REALPATH_VER_MINOR  0
+#define REALPATH_VER_PATCH  2
+
+
 int main(int argc, char* argv[])
 {
 	stlsoft::string_slice_m_t const program_name = platformstl::get_executable_name_from_path(argv[0]);
