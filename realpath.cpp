@@ -12,6 +12,7 @@
 #include <winstl/error/error_desc.hpp>
 #include <winstl/filesystem/absolute_path.hpp>
 
+#include <cstdio>
 #include <iostream>
 
 
@@ -28,6 +29,17 @@ int main(int argc, char* argv[])
     {
     case 2:
 
+        if (0 == std::strcmp("--help", argv[1]))
+        {
+            std::cout
+                << "USAGE: "
+                << program_name
+                << " <relative-path>"
+                << std::endl;
+
+            return EXIT_SUCCESS;
+        }
+        else
         {
             winstl::absolute_path abs_path(argv[1]);
 
@@ -59,9 +71,8 @@ int main(int argc, char* argv[])
     case 1:
 
         std::cerr
-            << "USAGE: "
             << program_name
-            << " <relative-path>"
+            << ": no name specified; use --help for usage"
             << std::endl;
 
         return EXIT_FAILURE;
