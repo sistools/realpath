@@ -23,7 +23,7 @@
 
 int main(int argc, char* argv[])
 {
-    stlsoft::string_slice_m_t const program_name = platformstl::get_executable_name_from_path(argv[0]);
+    auto const program_name = platformstl::get_executable_name_from_path(argv[0]);
 
     switch (argc)
     {
@@ -59,7 +59,6 @@ int main(int argc, char* argv[])
             }
             else
             {
-
                 std::cout
                     << abs_path
                     << std::endl;
