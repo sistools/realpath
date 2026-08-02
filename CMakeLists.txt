@@ -66,19 +66,60 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 if(MSVC)
 
-	if(MSVC_VERSION LESS 1930)
-
-		set(CMAKE_C_STANDARD 90)
-		set(CMAKE_CXX_STANDARD 98)
-	endif()
-
 	if(MSVC_VERSION GREATER_EQUAL 1914)
 
 		add_compile_options("/Zc:__cplusplus")
 
 		add_definitions(-D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING)
 	endif()
+
+	if(MSVC_VERSION LESS 1930)
+
+		set(CMAKE_C_STANDARD 90)
+		set(CMAKE_CXX_STANDARD 98)
+	endif()
+
+	if(MSVC_USE_MT)
+
+		set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+	endif(MSVC_USE_MT)
+else(MSVC)
+
+	if(MSVC_USE_MT)
+
+		# this here just to absorb warning about not using `MSVC_USE_MT` (to
+		# enable **prepare_cmake.sh** to be simple)
+	endif(MSVC_USE_MT)
 endif(MSVC)
+
+
+# ##########################################################
+# dependencies, includes, options
+
+# ################################################
+# includes - 1
+
+include(BuildType)
+#[====[
+include(LanguageFullVersion)
+include(TargetMacros)
+#]====]
+
+
+# ################################################
+# dependencies, features, and options
+
+
+# ######################################
+# options
+
+option(BUILD_EXAMPLES "Build examples" ON)
+
+option(BUILD_TESTING "Build tests" ON)
+
+
+# ######################################
+# features
 
 
 # ##########################################################
