@@ -13,12 +13,14 @@
 #include <winstl/filesystem/absolute_path.hpp>
 
 #include <cstdio>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 
 
 #define REALPATH_VER_MAJOR  0
-#define REALPATH_VER_MINOR  0
-#define REALPATH_VER_PATCH  3
+#define REALPATH_VER_MINOR  1
+#define REALPATH_VER_PATCH  0
 
 
 int main(int argc, char* argv[])

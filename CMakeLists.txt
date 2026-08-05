@@ -1,11 +1,10 @@
-
 # ######################################################################## #
 # File:     /CMakeLists.txt
 #
 # Purpose:  Top-level CMake lists file for realpath
 #
 # Created:  31st December 2024
-# Updated:  25th April 2025
+# Updated:  5th August 2026
 #
 # ######################################################################## #
 
@@ -66,46 +65,127 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 if(MSVC)
 
-	if(MSVC_VERSION LESS 1930)
-
-		set(CMAKE_C_STANDARD 90)
-		set(CMAKE_CXX_STANDARD 98)
-	endif()
-
 	if(MSVC_VERSION GREATER_EQUAL 1914)
 
 		add_compile_options("/Zc:__cplusplus")
 
 		add_definitions(-D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING)
 	endif()
+
+	if(MSVC_VERSION LESS 1930)
+
+		set(CMAKE_C_STANDARD 90)
+		set(CMAKE_CXX_STANDARD 98)
+	endif()
+
+	if(MSVC_USE_MT)
+
+		set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+	endif(MSVC_USE_MT)
+else(MSVC)
+
+	if(MSVC_USE_MT)
+
+		# this here just to absorb warning about not using `MSVC_USE_MT` (to
+		# enable **prepare_cmake.sh** to be simple)
+	endif(MSVC_USE_MT)
 endif(MSVC)
 
 
 # ##########################################################
-# dependencies (required)
+# dependencies, includes, options
 
-set(STLSoft_REQUIRED_VERSION_ 1.11.1)
+# ################################################
+# includes - 1
 
-find_package(STLSoft ${STLSoft_REQUIRED_VERSION_} REQUIRED)
+include(BuildType)
+#[====[
+include(LanguageFullVersion)
+include(TargetMacros)
+#]====]
 
-message("-- CMake package STLSoft found (version ${STLSoft_VERSION}; ${STLSoft_REQUIRED_VERSION_} requested)")
+
+# ################################################
+# dependencies, features, and options
 
 
-# ##########################################################
-# install
+# ######################################
+# options
 
-# provides install directory variables as defined by the GNU Coding Standards.
+option(BUILD_EXAMPLES "Build examples" ON)
+
+option(BUILD_TESTING "Build tests" ON)
+
+
+# ######################################
+# features
+
+# This tool targets Windows only (WinSTL).
+if(NOT WIN32)
+
+	message(FATAL_ERROR "${PROJECT_NAME} targets Windows only")
+endif()
+
+
+# ######################################
+# dependencies
+#
+# required:
+# - STLSoft;
+#
+# required if testing enabled:
+# - (none);
+#
+# optional:
+
+
+# ############################
+# STLSoft
+
+if(DEFINED STLSOFT)
+
+	message("-- STLSOFT provided as CMake variable with value '${STLSOFT}'")
+
+	set(STLSOFT_INCLUDE_DIR ${STLSOFT}/include)
+elseif(DEFINED ENV{STLSOFT})
+
+	message("-- STLSOFT provided as environment variable with value '$ENV{STLSOFT}'")
+
+	set(STLSOFT_INCLUDE_DIR $ENV{STLSOFT}/include)
+else()
+
+	set(STLSoft_REQUIRED_VERSION_ 1.11.1)
+
+	find_package(STLSoft ${STLSoft_REQUIRED_VERSION_} REQUIRED)
+
+	message("-- CMake package STLSoft found (version ${STLSoft_VERSION}; ${STLSoft_REQUIRED_VERSION_} requested)")
+endif()
+
+if(DEFINED STLSOFT_INCLUDE_DIR)
+
+	include_directories(${STLSOFT_INCLUDE_DIR})
+endif()
+
+
+# ################################################
+# includes - 2
+
+include(CMakePackageConfigHelpers)
+if(BUILD_TESTING)
+
+	include(CTest)
+endif(BUILD_TESTING)
 include(GNUInstallDirs)
 
 
 # ##########################################################
-# tool - realpath
+# tool
 
-add_executable(realpath
-	realpath.cpp
+add_executable(${PROJECT_NAME_LOWER}
+	${PROJECT_NAME_LOWER}.cpp
 )
 
-target_compile_options(realpath
+target_compile_options(${PROJECT_NAME_LOWER}
 	PRIVATE
 		$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
 			-Werror -Wall -Wextra -pedantic
@@ -114,16 +194,34 @@ target_compile_options(realpath
 			-Wno-incompatible-pointer-types-discards-qualifiers
 			-Wno-unused-parameter
 		>
-		$<$<CXX_COMPILER_ID:MSVC>: /WX /W4>
+		$<$<CXX_COMPILER_ID:MSVC>:
+			/WX /W4
+		>
 )
 
-target_link_libraries(realpath
-	STLSoft::STLSoft
+target_link_libraries(${PROJECT_NAME_LOWER}
+	$<$<STREQUAL:${STLSOFT_INCLUDE_DIR},>:STLSoft::STLSoft>
 )
 
-install(TARGETS realpath
+install(TARGETS ${PROJECT_NAME_LOWER}
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+
+# ################################################
+# examples
+
+
+# ################################################
+# tests
+
+if(BUILD_TESTING)
+
+	message("-- enabled building of tests ...")
+else(BUILD_TESTING)
+
+	message("-- disabled building of tests - define BUILD_TESTING to enable")
+endif(BUILD_TESTING)
 
 
 # ##########################################################
@@ -133,4 +231,3 @@ message(NOTICE "Generating CMake build scripts for ${PROJECT_NAME} ${PROJECT_VER
 
 
 # ############################## end of file ############################# #
-

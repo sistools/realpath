@@ -1,0 +1,2 @@
+realpath is a version of the Unix system tool implemented in terms of the STLSoft C/C++ libraries
+Copyright (c) 2024-2026, Matthew Wilson and Synesis Information Systems

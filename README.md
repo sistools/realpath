@@ -1,0 +1,74 @@
+# realpath <!-- omit in toc -->
+
+
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![GitHub release](https://img.shields.io/github/v/release/sistools/realpath.svg)](https://github.com/sistools/realpath/releases/latest)
+[![Last Commit](https://img.shields.io/github/last-commit/sistools/realpath)](https://github.com/sistools/realpath/commits/master)
+[![CI](https://github.com/sistools/realpath/actions/workflows/ci.yml/badge.svg)](https://github.com/sistools/realpath/actions/workflows/ci.yml)
+
+
+## Table of Contents <!-- omit in toc -->
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Components](#components)
+- [Examples](#examples)
+- [Project Information](#project-information)
+  - [Where to get help](#where-to-get-help)
+  - [Contribution guidelines](#contribution-guidelines)
+    - [Tests-only Dependencies](#tests-only-dependencies)
+  - [Related projects](#related-projects)
+  - [License](#license)
+
+
+## Introduction
+
+T.B.C.
+
+
+## Installation
+
+T.B.C.
+
+
+## Components
+
+T.B.C.
+
+
+## Examples
+
+T.B.C.
+
+
+## Project Information
+
+
+### Where to get help
+
+T.B.C.
+
+
+### Contribution guidelines
+
+T.B.C.
+
+
+#### Tests-only Dependencies
+
+T.B.C.
+
+
+### Related projects
+
+T.B.C.
+
+
+### License
+
+**lstrip** is released under the 3-clause BSD license. See [LICENSE](./LICENSE) for details.
+
+
+<!-- ########################### end of file ########################### -->
+
