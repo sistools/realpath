@@ -1,5 +1,7 @@
 # realpath <!-- omit in toc -->
 
+Windows analogue of the Unix **realpath**(1) utility.
+
 
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
@@ -17,29 +19,33 @@
 - [Project Information](#project-information)
   - [Where to get help](#where-to-get-help)
   - [Contribution guidelines](#contribution-guidelines)
-    - [Tests-only Dependencies](#tests-only-dependencies)
+  - [Dependencies](#dependencies)
   - [Related projects](#related-projects)
   - [License](#license)
 
 
 ## Introduction
 
-T.B.C.
+**realpath** is a small, standalone Windows utility that prints the absolute path of a given (possibly relative) path, implemented in terms of the **STLSoft** / **WinSTL** libraries. It is a **Windows-only** analogue of Unix **realpath**(1).
 
 
 ## Installation
 
-T.B.C.
+Detailed instructions - via **CMake** - are provided in the accompanying [INSTALL.md](./INSTALL.md)
+file.
 
 
 ## Components
 
-T.B.C.
+The project creates a single executable program, **realpath**.
 
 
 ## Examples
 
-T.B.C.
+```bat
+> realpath .
+C:\Users\...\sistools\realpath
+```
 
 
 ## Project Information
@@ -47,28 +53,34 @@ T.B.C.
 
 ### Where to get help
 
-T.B.C.
+[GitHub Page](https://github.com/sistools/realpath "GitHub Page")
 
 
 ### Contribution guidelines
 
-T.B.C.
+Defect reports, feature requests, and pull requests are welcome on [the **realpath** GitHub page](https://github.com/sistools/realpath).
 
 
-#### Tests-only Dependencies
+### Dependencies
 
-T.B.C.
+**realpath** depends on:
+
+* [**STLSoft**](https://github.com/synesissoftware/STLSoft) (1.11+; **WinSTL**);
 
 
 ### Related projects
 
-T.B.C.
+Other (similar) projects include:
+
+* [**chomp**](https://github.com/sistools/chomp);
+* [**lstrip**](https://github.com/sistools/lstrip);
+* [**mksock**](https://github.com/sistools/mksock);
+* [**rstrip**](https://github.com/sistools/rstrip);
 
 
 ### License
 
-**lstrip** is released under the 3-clause BSD license. See [LICENSE](./LICENSE) for details.
+**realpath** is released under the 3-clause BSD license. See [LICENSE](./LICENSE) for details.
 
 
 <!-- ########################### end of file ########################### -->
-
