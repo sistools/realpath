@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - master
+      - dev
       - boilerplate
+      - update
+      - version
   pull_request:
 
 concurrency:
