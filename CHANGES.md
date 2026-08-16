@@ -1,8 +1,9 @@
 # **realpath** Changes <!-- omit in toc -->
 
 
-## 0.1.0 - 6th August 2026
+## 0.1.0 - 16th August 2026
 
+* added support for '--version';
 
 
 ## 0.0.3 - 5th August 2026
