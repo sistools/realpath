@@ -62,7 +62,17 @@ T.B.C.
 
 ### Related projects
 
-T.B.C.
+Other **sistools** projects include:
+
+* [**chomp**](https://github.com/sistools/chomp);
+* [**errni**](https://github.com/sistools/errni) (errno on all platforms, and also GetLastError codes on Windows);
+* [**lnunique**](https://github.com/sistools/lnunique);
+* [**lslocales**](https://github.com/sistools/lslocales);
+* [**lstrip**](https://github.com/sistools/lstrip);
+* [**mksock**](https://github.com/sistools/mksock) (Unix-only);
+* [**ReadDebugString**](https://github.com/sistools/ReadDebugString) (Windows-only);
+* [**rstrip**](https://github.com/sistools/rstrip);
+* [**WriteDebugString**](https://github.com/sistools/WriteDebugString) (Windows-only);
 
 
 ### License
