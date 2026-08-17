@@ -25,22 +25,30 @@
 
 ## Introduction
 
-T.B.C.
+**realpath** is a small Windows-only utility that resolves a path in terms of
+the STLSoft C/C++ libraries.
 
 
 ## Installation
 
-T.B.C.
+The project uses CMake. From the project directory:
+
+```powershell
+cmake -S . -B _build
+cmake --build _build --config Release
+```
 
 
 ## Components
 
-T.B.C.
+The project creates a single executable program, **realpath**.
 
 
 ## Examples
 
-T.B.C.
+```powershell
+> realpath.exe path
+```
 
 
 ## Project Information
@@ -48,17 +56,19 @@ T.B.C.
 
 ### Where to get help
 
-T.B.C.
+[GitHub Page](https://github.com/sistools/realpath "GitHub Page")
 
 
 ### Contribution guidelines
 
-T.B.C.
+Defect reports, feature requests, and pull requests are welcome on [the
+**realpath** GitHub page](https://github.com/sistools/realpath).
 
 
 #### Tests-only Dependencies
 
-T.B.C.
+For unit-testing, **realpath** uses the test dependencies configured by its
+CMake build.
 
 
 ### Related projects
@@ -78,7 +88,8 @@ Other **sistools** projects include:
 
 ### License
 
-**lstrip** is released under the 3-clause BSD license. See [LICENSE](./LICENSE) for details.
+**realpath** is released under the 3-clause BSD license. See [LICENSE](./LICENSE)
+for details.
 
 
 <!-- ########################### end of file ########################### -->
