@@ -3,7 +3,7 @@
 
 ## realpath 0.0.x TODOs:
 
-* Complete **INSTALL.md** and **README.md** (replace **T.B.C.** stubs);
+* Review and expand **INSTALL.md** as the build and dependency requirements evolve;
 * Add **REQUISITES.md** (at least **STLSoft**);
 * Set GitHub repository topics: `cpp`, `cli`, `command-line`, `cmake`, `stlsoft`, `windows`, `win32`, `filesystem`, `path`, `bsd-3-clause`, `sistools`;
 
