@@ -19,8 +19,8 @@
 
 
 #define REALPATH_VER_MAJOR  0
-#define REALPATH_VER_MINOR  0
-#define REALPATH_VER_PATCH  3
+#define REALPATH_VER_MINOR  1
+#define REALPATH_VER_PATCH  0
 
 
 int main(int argc, char* argv[])
@@ -37,6 +37,21 @@ int main(int argc, char* argv[])
                 << "USAGE: "
                 << program_name
                 << " <relative-path>"
+                << std::endl;
+
+            return EXIT_SUCCESS;
+        }
+        else
+        if (0 == std::strcmp("--version", argv[1]))
+        {
+            std::cout
+                << program_name
+                << " v"
+                << REALPATH_VER_MAJOR
+                << '.'
+                << REALPATH_VER_MINOR
+                << '.'
+                << REALPATH_VER_PATCH
                 << std::endl;
 
             return EXIT_SUCCESS;

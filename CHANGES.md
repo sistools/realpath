@@ -1,7 +1,11 @@
 # **realpath** Changes <!-- omit in toc -->
 
 
-## 0.0.3 - 3rd August 2026
+## 0.1.0 - 6th August 2026
+
+
+
+## 0.0.3 - 5th August 2026
 
 * Added modular GitHub Actions CI (**ci.yml** / **ci-cell.yml**) for Windows (Windows-only tool);
 * Modernised **CMakeLists.txt** (explicit Windows-only guard; **STLSoft** discovery/`STLSOFT` override; MSVC options; `BUILD_TESTING`);
