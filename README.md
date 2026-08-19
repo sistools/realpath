@@ -1,5 +1,7 @@
 # realpath <!-- omit in toc -->
 
+Windows analogue of the Unix **realpath**(1) utility.
+
 
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat&logo=c%2B%2B&logoColor=white)
 ![Windows](https://img.shields.io/badge/OS-Windows-0078D6?style=flat&logo=windows&logoColor=white)
@@ -18,25 +20,20 @@
 - [Project Information](#project-information)
   - [Where to get help](#where-to-get-help)
   - [Contribution guidelines](#contribution-guidelines)
-    - [Tests-only Dependencies](#tests-only-dependencies)
+  - [Dependencies](#dependencies)
   - [Related projects](#related-projects)
   - [License](#license)
 
 
 ## Introduction
 
-**realpath** is a small Windows-only utility that resolves a path in terms of
-the STLSoft C/C++ libraries.
+**realpath** is a small, standalone Windows utility that prints the absolute path of a given (possibly relative) path, implemented in terms of the **STLSoft** / **WinSTL** libraries. It is a **Windows-only** analogue of Unix **realpath**(1).
 
 
 ## Installation
 
-The project uses CMake. From the project directory:
-
-```powershell
-cmake -S . -B _build
-cmake --build _build --config Release
-```
+Detailed instructions - via **CMake** - are provided in the accompanying [INSTALL.md](./INSTALL.md)
+file.
 
 
 ## Components
@@ -46,8 +43,9 @@ The project creates a single executable program, **realpath**.
 
 ## Examples
 
-```powershell
-> realpath.exe path
+```bat
+> realpath .
+C:\Users\...\sistools\realpath
 ```
 
 
@@ -65,10 +63,11 @@ Defect reports, feature requests, and pull requests are welcome on [the
 **realpath** GitHub page](https://github.com/sistools/realpath).
 
 
-#### Tests-only Dependencies
+### Dependencies
 
-For unit-testing, **realpath** uses the test dependencies configured by its
-CMake build.
+**realpath** depends on:
+
+* [**STLSoft**](https://github.com/synesissoftware/STLSoft) (1.11+; **WinSTL**, **PlatformSTL**);
 
 
 ### Related projects
@@ -93,4 +92,3 @@ for details.
 
 
 <!-- ########################### end of file ########################### -->
-
