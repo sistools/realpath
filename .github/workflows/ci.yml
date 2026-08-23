@@ -6,7 +6,10 @@ on:
       - master
       - dev
       - boilerplate
-      - update
+      - idiomatic
+      - rc1
+      - rc2
+      - rc3
       - version
   pull_request:
 
