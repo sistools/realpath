@@ -106,8 +106,8 @@ Flags/options:
 
     behaviour:
 
-    --cxx-standard {98|11|14|17|20|23}
-        sets CMAKE_CXX_STANDARD (default is 17)
+    --c-standard {99|11|17|23}
+        sets CMAKE_C_STANDARD (default is 11)
 
     -v
     --cmake-verbose-makefile
@@ -172,7 +172,7 @@ cd $CMakeDir
 
 echo "Executing CMake for ${SisClr_Blue}${SisClr_Bold}${ProjectName}${SisClr_None} (in ${SisClr_Blue}${SisClr_Bold}${CMakeDir}${SisClr_None})"
 
-if [ -z "$CxxStandard" ]; then CMakeCxxStandardVariable="" ; else CMakeCxxStandardVariable="-DCMAKE_CXX_STANDARD=$CxxStandard" ; fi
+if [ -z "$CxxStandard" ]; then CMakeCStandardVariable="" ; else CMakeCStandardVariable="-DCMAKE_C_STANDARD=$CxxStandard" ; fi
 if [ $MSVC_MT -eq 0 ]; then CMakeMsvcMtFlag="OFF" ; else CMakeMsvcMtFlag="ON" ; fi
 if [ -z "$STLSoftDirGiven" ]; then CMakeSTLSoftVariable="" ; else CMakeSTLSoftVariable="-DSTLSOFT=$STLSoftDirGiven/" ; fi
 if [ $TestingDisabled -eq 0 ]; then CMakeBuildTestingFlag="ON" ; else CMakeBuildTestingFlag="OFF" ; fi
@@ -181,7 +181,7 @@ if [ $VerboseMakefile -eq 0 ]; then CMakeVerboseMakefileFlag="OFF" ; else CMakeV
 if [ $MinGW -ne 0 ]; then
 
   cmake \
-    $CMakeCxxStandardVariable \
+    $CMakeCStandardVariable \
     $CMakeSTLSoftVariable \
     -DBUILD_TESTING:BOOL=$CMakeBuildTestingFlag \
     -DCMAKE_BUILD_TYPE=$Configuration \
@@ -192,7 +192,7 @@ if [ $MinGW -ne 0 ]; then
 else
 
   cmake \
-    $CMakeCxxStandardVariable \
+    $CMakeCStandardVariable \
     $CMakeSTLSoftVariable \
     -DBUILD_TESTING:BOOL=$CMakeBuildTestingFlag \
     -DCMAKE_BUILD_TYPE=$Configuration \
