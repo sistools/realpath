@@ -4,6 +4,10 @@
 - [Requisites](#requisites)
 - [Building](#building)
   - [via CMake](#via-cmake)
+- [Requisites](#requisites-1)
+- [Building](#building-1)
+- [Installing](#installing)
+- [Testing](#testing)
 
 
 ## Requisites

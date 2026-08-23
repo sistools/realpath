@@ -59,7 +59,7 @@ while [[ $# -gt 0 ]]; do
           ;;
         *)
 
-          >&2 echo "$ScriptPath: ${SisClr_Red}${SisClr_Bold}invalid C++ standard '$CStandard'${SisClr_None}; expected 98, 11, 14, 17, 20, or 23"
+          >&2 echo "$ScriptPath: ${SisClr_Red}${SisClr_Bold}invalid C++ standard '$CxxStandard'${SisClr_None}; expected 98, 11, 14, 17, 20, or 23"
 
           exit 1
           ;;
