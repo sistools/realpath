@@ -6,8 +6,10 @@ on:
       - master
       - dev
       - boilerplate
-      - update
-      - version
+      - idiomatic
+      - rc1
+      - rc2
+      - rc3
   pull_request:
 
 concurrency:
