@@ -20,7 +20,7 @@
 
 #define REALPATH_VER_MAJOR  0
 #define REALPATH_VER_MINOR  1
-#define REALPATH_VER_PATCH  0
+#define REALPATH_VER_PATCH  2
 
 
 int main(int argc, char* argv[])
